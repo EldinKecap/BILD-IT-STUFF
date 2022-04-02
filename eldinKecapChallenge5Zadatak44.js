@@ -2,7 +2,8 @@ let arr = new Array(20);
 for (let i = 0; i < arr.length; i++) {
     arr[i]= Math.floor(Math.random()*( 100 - 1 ) + 1 );   
 }
-console.log(arr);
+console.log(`Prvi niz :`);
+console.table(arr);
 
 // arr.reverse();
 
@@ -15,5 +16,5 @@ console.log(arr);
         arr [i] = tempArr[tempArr.length-1-i];
     }
 
-
-console.log(arr);
+console.log(`Obrnuti niz :`);
+console.table(arr);

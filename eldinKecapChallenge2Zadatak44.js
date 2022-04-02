@@ -6,6 +6,7 @@ for(let i = 0 ; i < arr.length ; i++ ){
 for(let i = 0 ; i < arr.length ; i++){
     if(i%2===0){
         suma += arr[i];
-        console.log(suma);
+       
     }
 }
+console.log(`Suma svih brojeva sa parnim indexom je ${suma}`);

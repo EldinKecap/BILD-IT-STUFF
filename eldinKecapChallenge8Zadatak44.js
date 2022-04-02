@@ -1,4 +1,6 @@
 let str = `Make it work, make it right, make it fast.`;
+console.log(`String "${str}" sa uklonjenim samoglasnicima :`);
+// console.log(str.replace(/a|e|i|o|u/g,''));
 let correctedStr = [];
 
 for( let i = 0 ; i < str.length ; i++){
@@ -6,5 +8,14 @@ for( let i = 0 ; i < str.length ; i++){
        correctedStr.push(str.charAt(i));
     }
 }
-str = correctedStr.toString();
+
+str = "";
+
+for( let i = 0 ; i < correctedStr.length ; i++){
+    str = str.concat(correctedStr[i]);
+    
+}
+
 console.log(str);
+
+
