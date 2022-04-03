@@ -8,16 +8,11 @@ console.table(fibonacci);
 
 function parni(fibonacci){
     
-    for(let i = 1 ; i < fibonacci.length ; i++ ){
-//Ne mogu da napravim da ubaci i 610 u niz probo sam vise nacina slicnih ovome ali nije mi radilo (!(fibonacci[i]%10===0) && fibonacci[i] % 2 === 0)
-//Ovaj iznad radi za 610 ali ubaci i 2584 u niz
-        if(fibonacci[i] % 2 === 0){    
-          
-           fibonacci.splice(i,1);
-           
+    for(let i = 1 ; i < fibonacci.length ; i++ ){    
+        if((!(fibonacci[i]%10===0) && fibonacci[i] % 2 === 0)){      
+           fibonacci.splice(i,1);       
+           --i;
         }
-
-        i++;
     }
 };
 
