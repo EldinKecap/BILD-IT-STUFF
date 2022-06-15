@@ -49,6 +49,7 @@ function imgurUrlParser(link) {
                 obj.id = link.slice(i+1,link.length);
                 obj.type = 'image';
                 i--;
+                
             }   
          
 
@@ -57,26 +58,12 @@ function imgurUrlParser(link) {
 if(obj.type === 'a'){
     obj.type = 'album'
 }
-    // if(counter == 4){
-    //     counter = 0;
-    //     let idCutB = 0;
-    //     let idCutE = 0;
-    //     for (let i = 0; i < link.length; i++) {
-    //         if (link[i]=='/') {
-    //             counter++;
-    //         }
-    //         if (counter == 3 && link[i]=='/') {
-    //             idCutB=i;
-    //         }
-    //         if (counter == 4 && link[i]=='/') {
-    //             idCutE=i;
-    //             obj.id = link.slice(i,link.length-i)    
-    //         }
-    //     }
-    //     obj.type=link.slice(idCutB,idCutE-idCutB);
-    // }
+if (obj.id.includes('.png')) {
+    obj.id = obj.id.replace('.png','')
+    console.log('sd')
+}
     return obj;
 }
-console.log(imgurUrlParser("http://imgur.com/gallery/59npG"));
+// console.log(imgurUrlParser("http://imgur.com/gallery/59npG"));
 console.log(imgurUrlParser("http://i.imgur.com/altd8Ld.png"));
-console.log(imgurUrlParser("http://imgur.com/a/cjh4E"));
+// console.log(imgurUrlParser("http://imgur.com/a/cjh4E"));
