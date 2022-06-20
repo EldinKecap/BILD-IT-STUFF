@@ -18,6 +18,8 @@ class Book {
             if(this.userThatRented===userName&&this.beingRented===true){
                 this.beingRented = false;
                 this.userThatRented = '';
+            }else{
+                console.log('Not the user that rented the book');
             }   
     }    
 }
@@ -48,6 +50,9 @@ class User extends Person{
     getPassword(){
         return this.#password;
     }
+    getUsername(){
+        return 'ID:'+this.ID+' Name:'+this.firstName
+    }
 }
 const BAZAPODATAKA = {
     KORISNICI:[],
@@ -61,6 +66,26 @@ const BAZAPODATAKA = {
             }
         }
         console.log('Book Not Found')
+    },
+    returnBook(bookName,userName){
+            for (let i = 0; i < this.KNJIGE.length; i++) {
+                const book = this.KNJIGE[i];
+                if (book.name === bookName && book.userThatRented === userName) {
+                    book.bookReturned(userName);
+                    return;
+                }
+            }
+            console.log('Book Not Found')
+    },
+    checkPassword(UserID,password){
+       for (let i = 0; i < BAZAPODATAKA.KORISNICI.length; i++) {
+        const {ID} = BAZAPODATAKA.KORISNICI[i];
+        if (ID === UserID && password === BAZAPODATAKA.KORISNICI[i].getPassword()) {
+            console.log('User identity confirmed');
+            return true
+        }
+       }
+       return false
     }
 };
 
@@ -70,4 +95,8 @@ BAZAPODATAKA.KORISNICI.push(korisnik);
 let pisac = new Writer('Branko','Copic',123);
 let knjiga = new Book(pisac,'Bulke pored pruge');
 BAZAPODATAKA.KNJIGE.push(knjiga);
-console.log(korisnik);
+
+BAZAPODATAKA.findBookAndRentIt('Bulke pored pruge',BAZAPODATAKA.KORISNICI[0].getUsername());
+BAZAPODATAKA.returnBook('Bulke pored pruge',BAZAPODATAKA.KORISNICI[0].getUsername())
+// BAZAPODATAKA.checkPassword(1,'12323');
+console.log(knjiga);
