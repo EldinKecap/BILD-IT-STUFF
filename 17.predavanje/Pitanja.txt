@@ -1,0 +1,10 @@
+1.Wtf javascript is this bad code. Is this something that is used down the line.
+function f(phrase) {
+  return class {
+    sayHi() { alert(phrase); }
+  };
+}
+
+class User extends f("Hello") {}
+
+new User().sayHi(); // Hello
